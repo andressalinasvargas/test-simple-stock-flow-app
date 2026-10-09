@@ -1,4 +1,3 @@
-export * from '../../api.dto';
 export interface PagedResponse<T> {
   items: T[];
   page: number;

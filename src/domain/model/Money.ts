@@ -1,3 +1,12 @@
+export function formatMoney(amount: number): string {
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
+}
+
 export class Money {
   private constructor(
     public readonly amount: number,
@@ -27,12 +36,7 @@ export class Money {
   }
 
   public format(): string {
-    return new Intl.NumberFormat('es-CO', {
-      style: 'currency',
-      currency: this.currency,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(this.amount);
+    return formatMoney(this.amount);
   }
 }
 
